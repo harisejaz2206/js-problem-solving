@@ -25,6 +25,7 @@ function totientValues(a) {
   console.log(`Final totient array of ${a} is \n\n`, finalTotientArray);
 }
 
-totientValues(15);
+totientValues(64);
+totientValues(64);
 // totientValues(33);
 // totientValues(40);
