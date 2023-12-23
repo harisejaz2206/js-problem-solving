@@ -1,11 +1,11 @@
-const occ = (string) => {
-  let occurrences = {};
+function occ(string) {
+  let occurences = {};
   string.split("").forEach((element) => {
-    occurrences.hasOwnProperty(element)
-      ? occurrences[element]++
-      : (occurrences[element] = 1);
+    occurences.hasOwnProperty(element)
+      ? occurences[element]++
+      : (occurences[element] = 1);
   });
-  return occurrences;
-};
+  return occurences;
+}
 
 console.log(occ("hello"));
