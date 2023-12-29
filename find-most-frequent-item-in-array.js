@@ -12,6 +12,11 @@ const frequent = (array) => {
       maxCount = occurences[item];
       maxElement = item;
     }
+
+    // var ans = Object.keys(occurences).reduce(function (acc, num) {
+    //   return occurences[acc] > occurences[num] ? acc : num;
+    // });
+    // console.log("Answer:", ans);
   });
 
   console.log("Occurrences:", occurences);
