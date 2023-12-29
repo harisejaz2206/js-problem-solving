@@ -21,7 +21,7 @@ const reverseANumber2 = (number) => {
   var reversed = 0;
   while (number > 0) {
     let remainder = number % 10; // 4
-    reverse = reverse * 10 + remainder; // 4
+    reversed = reversed * 10 + remainder; // 4
     number = Math.floor(number / 10); // 123
   }
   return reversed;
