@@ -1,10 +1,3 @@
-/**
- * Reverses a number by converting it to a string,
- * reversing the string, and converting it back to a number.
- *
- * @param {number} number - The number to be reversed.
- * @returns {number} The reversed number.
- */
 const reverseANumber = (number) => {
   let numberInString = number.toString().split("").reverse().join("");
   console.log(typeof numberInString);
