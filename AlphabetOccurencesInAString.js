@@ -1,4 +1,4 @@
-function occ2(string) {
+function occ(string) {
   let occurences = {};
 
   string.split("").forEach((char) => {
