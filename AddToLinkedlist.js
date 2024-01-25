@@ -46,6 +46,26 @@ class LinkedList {
     previous.next = current.next;
   }
 
+  deleteNodePractice(data) {
+    if (!this.head) {
+      return;
+    }
+    if (this.head.data === data) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let current = this.head;
+    let previous = null;
+    while (current && current.data !== data) {
+      previous = current;
+      current = current.next;
+    }
+
+    if (!current) return;
+    previous.next = current.next;
+  }
+
   displayList() {
     let current = this.head;
     while (current) {
