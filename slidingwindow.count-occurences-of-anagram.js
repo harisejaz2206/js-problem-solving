@@ -10,29 +10,17 @@ const occ = (string) => {
   return occurences;
 };
 
-let string = "harisaaaarfface";
-// console.log(occ(string));
-
 const occurencesOfAnagram = (string, pattern) => {
   let i = 0;
   let j = 0;
   let k = pattern.split("").length;
-  console.log("k", k);
   let size = string.split("").length;
-  console.log("size", size);
 
   let array = string.split("");
-  console.log("array", array);
   let anagram = pattern.split("");
-  console.log("anagram", anagram);
 
   let occurencesOfAnagram = occ(pattern);
   let keyCount = Object.keys(occurencesOfAnagram).length;
-  console.log(
-    "occurences of anagram, key count",
-    occurencesOfAnagram,
-    keyCount
-  );
 
   let anagramCount = 0;
   console.log("anagram count", anagramCount);
