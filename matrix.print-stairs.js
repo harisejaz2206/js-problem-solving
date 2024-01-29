@@ -5,8 +5,8 @@ const printStairs = (matrix, n) => {
     for (let row = 0; row < n; row++) {
       if (row === col) {
         result.push(matrix[col][col]);
-      } else if (col - row === 1) {
-        result.push(matrix[col][row]);
+      } else if (row - col === 1) {
+        result.push(matrix[row][col]);
       }
     }
   }
