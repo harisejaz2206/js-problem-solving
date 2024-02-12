@@ -67,7 +67,9 @@ class BinaryTree {
 
   // Helper method to perform inorder traversal
   inorderTraversal(node) {
-    if (node !== null) {
+    if (node === null) {
+      return;
+    } else {
       this.inorderTraversal(node.left);
       console.log(node.data);
       this.inorderTraversal(node.right);
@@ -79,7 +81,8 @@ const tree = new BinaryTree();
 tree.insert(5);
 tree.insert(3);
 tree.insert(4);
-tree.insert(6);
+tree.insert(2);
+tree.insert(9);
 // console.log("Binary Tree:", JSON.stringify(tree, null, 2));
 
 console.log("Inorder traversal:");
