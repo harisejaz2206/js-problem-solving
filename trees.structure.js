@@ -26,19 +26,20 @@ class BinaryTree {
       if (parentNode.left === null) {
         parentNode.left = newNode;
       } else {
-        insertNode(parentNode.left, newNode);
+        this.insertNode(parentNode.left, newNode);
       }
     } else {
       // new node data is greater than parent node data so we add to right side
       if (parentNode.right === null) {
         parentNode.right = newNode;
       } else {
-        insertNode(parentNode.right, newNode);
+        this.insertNode(parentNode.right, newNode);
       }
     }
   }
 }
 
 const tree = new BinaryTree();
-const node = new Node(6);
-tree.logging();
+tree.insert(5);
+tree.insert(3);
+tree.insert(4);
