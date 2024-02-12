@@ -12,24 +12,24 @@ class BinaryTree {
   }
 
   insert(data) {
-    const newNode = new Node(5);
+    const node = new Node(data);
     if (this.root === null) {
-      this.root = newNode;
+      this.root = node;
     } else {
-      this.insertNode(this.root, newNode);
+      insertNode(this.root, node);
     }
   }
 
   insertNode(parentNode, newNode) {
     if (newNode.data < parentNode.data) {
-      // new node data is greater than parent node data so we add to right side
+      // insert on left
       if (parentNode.left === null) {
-        parentNode.left = newNode;
+        parentNode.left = node;
       } else {
         this.insertNode(parentNode.left, newNode);
       }
     } else {
-      // new node data is greater than parent node data so we add to right side
+      // insert on right
       if (parentNode.right === null) {
         parentNode.right = newNode;
       } else {
@@ -55,6 +55,7 @@ class BinaryTree {
         } else {
           if (currentParentNode.right === null) {
             currentParentNode.right = newNode;
+            break;
           }
           currentParentNode = currentParentNode.right;
           // put in right
