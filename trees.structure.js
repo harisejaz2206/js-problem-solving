@@ -37,6 +37,31 @@ class BinaryTree {
       }
     }
   }
+
+  insertCombined(data) {
+    const newNode = new Node(data);
+    if (this.root === null) {
+      this.root = newNode;
+    } else {
+      let currentParentNode = this.root;
+      while (true) {
+        if (data < currentParentNode.left) {
+          // put in left side of the parent node
+          if (currentParentNode.left === null) {
+            currentParentNode.left = newNode;
+            break;
+          }
+          currentParentNode = currentParentNode.left;
+        } else {
+          if (currentParentNode.right === null) {
+            currentParentNode.right = newNode;
+          }
+          currentParentNode = currentParentNode.right;
+          // put in right
+        }
+      }
+    }
+  }
 }
 
 const tree = new BinaryTree();
