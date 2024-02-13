@@ -38,34 +38,15 @@ class BinaryTree {
     }
   }
 
-  // in-order traversal
-  inOrder(root) {
+  leafNodes(root) {
+    // base case
     if (root === null) {
-      return;
+      return 0;
     }
-    this.inOrder(root.left);
-    console.log(root.data);
-    this.inOrder(root.right);
-  }
-
-  // pre-order traversal
-  preOrder(root) {
-    if (root === null) {
-      return;
+    if (!root.left && !root.right) {
+      return 1;
     }
-    console.log(root.data);
-    this.preOrder(root.left);
-    this.preOrder(root.right);
-  }
-
-  // post-order traversal
-  postOrder(root) {
-    if (root === null) {
-      return;
-    }
-    this.postOrder(root.left);
-    this.postOrder(root.right);
-    console.log(root.data);
+    return this.leafNodes(root.left) + this.leafNodes(root.right);
   }
 }
 
@@ -78,11 +59,4 @@ tree.insertIterative(9);
 tree.insertIterative(1);
 // console.log("Binary Tree:", JSON.stringify(tree, null, 2));
 
-console.log("Inorder traversal:");
-tree.inOrder(tree.root);
-
-console.log("Preorder traversal:");
-tree.preOrder(tree.root);
-
-console.log("Postorder traversal:");
-tree.postOrder(tree.root);
+console.log("Number of lead nodes:", tree.leafNodes(tree.root));
