@@ -52,7 +52,7 @@ class BinaryTree {
       return 0;
     }
     let option1 = this.diameter(root.left);
-    let option2 = this.diameter(root.right);
+    let option2 = this.diameter(root.left);
     let option3 = this.height(root.left) + this.height(root.right) + 1;
 
     return Math.max(option1, option2, option3);
