@@ -66,7 +66,7 @@ tree.insertIterative(4);
 tree.insertIterative(2);
 tree.insertIterative(9);
 tree.insertIterative(1);
-// console.log("Binary Tree:", JSON.stringify(tree, null, 2));
+console.log("Binary Tree:", JSON.stringify(tree, null, 2));
 
 console.log("Height of binary tree:", tree.height(tree.root));
 console.log("Diameter of binary tree:", tree.diameter(tree.root));
