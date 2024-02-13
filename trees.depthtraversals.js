@@ -13,7 +13,6 @@ class BinaryTree {
 
   insertIterative(data) {
     const newNode = new Node(data);
-    console.log("inside");
     if (this.root === null) {
       // root is null
       this.root = newNode;
@@ -39,15 +38,33 @@ class BinaryTree {
     }
   }
 
-  // Helper method to perform inorder traversal
-  inorderTraversal(node) {
-    if (node === null) {
+  // in-order traversal
+  inOrder(root) {
+    if (root === null) {
       return;
-    } else {
-      this.inorderTraversal(node.left);
-      console.log(node.data);
-      this.inorderTraversal(node.right);
     }
+    this.inOrder(root.left);
+    console.log(root.data);
+    this.inOrder(root.right);
+  }
+
+  // pre-order traversal
+  preOrder(root) {
+    if (root === null) {
+      return;
+    }
+    this.preOrder(root.left);
+    console.log(root.data);
+    this.preOrder(root.right);
+  }
+
+  postOrder(root) {
+    if (root === null) {
+      return;
+    }
+    this.postOrder(root.left);
+    this.postOrder(root.right);
+    console.log(root.data);
   }
 }
 
@@ -57,7 +74,11 @@ tree.insertIterative(3);
 tree.insertIterative(4);
 tree.insertIterative(2);
 tree.insertIterative(9);
+tree.insertIterative(1);
 // console.log("Binary Tree:", JSON.stringify(tree, null, 2));
 
 console.log("Inorder traversal:");
-tree.inorderTraversal(tree.root);
+tree.inOrder(tree.root);
+
+console.log("Preorder traversal:");
+tree.preOrder(tree.root);
