@@ -38,47 +38,27 @@ class BinaryTree {
     }
   }
 
-  // in-order traversal
-  inOrder(root) {
+  mirror(root) {
     if (root === null) {
-      return;
+      return null;
     }
-    this.inOrder(root.left);
-    console.log(root.data);
-    this.inOrder(root.right);
-  }
+    let left = this.mirror(root.left);
+    let right = this.mirror(root.right);
 
-  // pre-order traversal
-  preOrder(root) {
-    if (root === null) {
-      return;
-    }
-    console.log(root.data);
-    this.preOrder(root.left);
-    this.preOrder(root.right);
-  }
+    root.left = right;
+    root.right = left;
 
-  postOrder(root) {
-    if (root === null) {
-      return;
-    }
-    this.postOrder(root.left);
-    this.postOrder(root.right);
-    console.log(root.data);
+    return root;
   }
 }
 
 const tree = new BinaryTree();
-tree.insertIterative(5);
+tree.insertIterative(2);
+tree.insertIterative(1);
 tree.insertIterative(3);
 tree.insertIterative(4);
-tree.insertIterative(2);
-tree.insertIterative(9);
-tree.insertIterative(1);
-// console.log("Binary Tree:", JSON.stringify(tree, null, 2));
+console.log("Before mirror binary tree:", JSON.stringify(tree, null, 2));
 
-console.log("Inorder traversal:");
-tree.inOrder(tree.root);
-
-console.log("Preorder traversal:");
-tree.preOrder(tree.root);
+console.log("--------------------------------");
+tree.mirror(tree.root);
+console.log("After mirror binary tree:", JSON.stringify(tree, null, 2));
