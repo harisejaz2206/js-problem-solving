@@ -36,20 +36,45 @@ class BinaryTree {
     }
   }
 
-  height(root) {
-    if (root === null) {
-      return 0;
+  checkIfIdentical(rootOne, rootTwo) {
+    /* 1. Check if both roots are null*/
+    if (rootOne === null || rootTwo === null) {
+      return true;
+    } else if (rootOne.left !== null && rootOne.left !== null) {
+      /* 2. Both roots are not null so comnparing the trees*/
+      let leftCheck = this.checkIfIdentical(rootOne.left, rootTwo.left);
+      let rightCheck = this.checkIfIdentical(rootOne.right, rootTwo.right);
+
+      let value = rootOne.data === rootTwo.data;
+
+      if (value && leftCheck && rightCheck) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      /* 3. One is null, one is not (rest of the false cases) */
+      return false;
     }
-    let leftHeight = this.height(root.left);
-    let rightHeight = this.height(root.right);
-    return Math.max(leftHeight, rightHeight) + 1;
   }
 }
 
-const tree = new BinaryTree();
-tree.insertIterative(10);
-tree.insertIterative(5);
-tree.insertIterative(15);
-tree.insertIterative(2);
+const treeOne = new BinaryTree();
+treeOne.insertIterative(5);
+treeOne.insertIterative(2);
+treeOne.insertIterative(10);
+treeOne.insertIterative(15);
+
+const treeTwo = new BinaryTree();
+treeTwo.insertIterative(5);
+treeTwo.insertIterative(2);
+treeTwo.insertIterative(10);
+treeTwo.insertIterative(15);
+// treeTwo.insertIterative(1);
 // console.log("Binary Tree", JSON.stringify(tree, null, 2));
-console.log("The height of this tree is: ", tree.height(tree.root));
+// console.log("The height of this tree is: ", tree.height(tree.root));
+
+console.log(
+  "THe two binary trees are identical",
+  treeOne.checkIfIdentical(treeOne.root, treeTwo.root)
+);
