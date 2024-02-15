@@ -67,7 +67,7 @@ const tree = new BinaryTree();
 tree.insertIterative(5);
 tree.insertIterative(3);
 tree.insertIterative(2);
-tree.insertIterative(1);
+// tree.insertIterative(1);
 tree.insertIterative(9);
 // console.log("Binary Tree:", JSON.stringify(tree, null, 2));
 
