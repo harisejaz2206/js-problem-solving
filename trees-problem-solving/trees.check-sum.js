@@ -48,17 +48,18 @@ class BinaryTree {
   }
 
   isSum(root) {
+    let leftSum, rightSum;
     if (root === null || (root.left === null && root.right === null)) {
       return true;
     }
 
-    let leftSum = this.sum(root.left);
-    let rightSum = this.sum(root.right);
+    leftSum = this.sum(root.left);
+    rightSum = this.sum(root.right);
 
     if (
       root.data === leftSum + rightSum &&
-      isSumTree(root.left) &&
-      isSumTree(root.right)
+      this.isSum(root.left) &&
+      this.isSum(root.right)
     ) {
       return true;
     }
@@ -67,8 +68,13 @@ class BinaryTree {
 }
 
 const tree = new BinaryTree();
-tree.root = 6;
-tree.root.left = 4;
+tree.root = new Node(26);
+tree.root.left = new Node(10);
+tree.root.right = new Node(3);
+tree.root.right.right = new Node(3);
+tree.root.left.left = new Node(4);
+// tree.root.left.right = new Node(6);
+
 // console.log("Binary Tree:", JSON.stringify(tree, null, 2));
 
-console.log(tree.checkSum(tree.root));
+console.log(tree.isSum(tree.root));
