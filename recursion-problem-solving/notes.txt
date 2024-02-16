@@ -3,3 +3,7 @@
 2. Base condition - Induction - Hypothesis (Making input smaller)
 3. Choice diagram (DP)
 4. tbd
+
+Base condition:
+1. Smallest valid input
+2. Smallest invalid input

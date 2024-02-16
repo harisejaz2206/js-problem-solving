@@ -1,20 +1,12 @@
-function printSubsets(str, index = 0, current = "") {
-  const n = str.length;
+// Induction-base condition-hypothesis method
 
-  // Base case: if index reaches the length of the string, print current subset
-  if (index === n) {
-    console.log(current);
-    return;
+function print(n) {
+  if (n == 1) {
+    console.log(n);
+    return 1;
   }
-
-  // Recursive case 1: Include the current character
-  printSubsets(str, index + 1, current + str[index]);
-
-  // Recursive case 2: Exclude the current character
-  printSubsets(str, index + 1, current);
+  print(n - 1);
+  console.log(n);
 }
 
-// Example usage:
-const string = "abc";
-console.log("Subsets of", string, ":");
-printSubsets(string);
+print(7);
