@@ -1,0 +1,5 @@
+# There are four approaches to recursion:
+1. Recursive tree - IP/OP method (taking decisions)
+2. Base condition - Induction - Hypothesis (Making input smaller)
+3. Choice diagram (DP)
+4. tbd
