@@ -7,28 +7,34 @@
 // 2. Hypothesis step: breaking down the problem which the induction step (main logic step) makes it work
 // 3. Induction step: the piece of code which makes everything work
 
+/**
+ * Inserts a given element into a sorted array recursively.
+ */
 function insert(array, temp) {
-  // base condition
   if (array.length === 0 || array[array.length - 1] <= temp) {
     array.push(temp);
     return;
   }
   let value = array[array.length - 1];
-  array.pop(value);
+  array.pop();
   insert(array, temp);
   array.push(value);
 }
 
+/**
+ * Sorts an array using recursion and the insertion sort algorithm. (Breaking it down)
+ */
 function sort(array) {
   if (array.length === 1) {
     return;
   }
+
   let temp = array[array.length - 1];
-  array.pop(temp);
-  sort(array, temp);
+  array.pop();
+  sort(array);
   insert(array, temp);
 }
 
-var array = [2, 3, 7, 6, 4, 5, 9];
+var array = [2, 3, 7, 6, 4];
 sort(array);
-console.log(array);
+console.log("Sorted array:", array);
