@@ -39,33 +39,13 @@ class BinaryTree {
   }
 
   levelOrder(root) {
-    // array operations to use with queue: shift(), push(element)
     var queue = [];
+    // we can use shift and push methods for queue
     queue.push(root);
     queue.push(null);
-    // console.log("queue", queue);
 
     while (queue.length > 0) {
-      let temp = queue[0];
-
-      queue.shift();
-
-      if (temp === null) {
-        //purana level complete traverse hochuka hai
-        console.log("");
-        if (queue.length > 0) {
-          queue.push(null);
-        }
-      } else {
-        console.log(temp.data);
-        if (temp.left) {
-          queue.push(temp.left);
-        }
-
-        if (temp.right) {
-          queue.push(temp.right);
-        }
-      }
+      // take the front of the queue, dequeue, and check if it null or node
     }
   }
 }
