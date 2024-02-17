@@ -46,6 +46,23 @@ class BinaryTree {
 
     while (queue.length > 0) {
       // take the front of the queue, dequeue, and check if it null or node
+      let temp = queue[0];
+      queue.shift();
+
+      if (temp === null) {
+        console.log("");
+        if (queue.length > 0) {
+          queue.push(null);
+        }
+      } else {
+        console.log(temp.data);
+        if (temp.left) {
+          queue.push(temp.left);
+        }
+        if (temp.right) {
+          queue.push(temp.right);
+        }
+      }
     }
   }
 }
