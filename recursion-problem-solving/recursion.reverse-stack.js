@@ -1,5 +1,4 @@
 function insert(stack, element) {
-  // base condition
   if (stack.length === 0) {
     stack.push(element);
     return;
@@ -7,7 +6,7 @@ function insert(stack, element) {
   let temp = stack[stack.length - 1];
   stack.pop();
   insert(stack, element);
-  stack.push(element);
+  stack.push(temp);
 }
 
 function reverse(stack) {
@@ -16,11 +15,11 @@ function reverse(stack) {
   }
   let temp = stack[stack.length - 1];
   stack.pop();
+  reverse(stack);
   insert(stack, temp);
-  stack.push(temp);
 }
 
 let stack = [5, 4, 3, 2, 1];
-console.log("Stack before reversing", stack);
-stack.reverse();
-console.log("Stack after reversing", stack);
+console.log("stack before reverse:", stack);
+reverse(stack);
+console.log("stack after reverse:", stack);
