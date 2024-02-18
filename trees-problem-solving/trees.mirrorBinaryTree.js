@@ -40,15 +40,15 @@ class BinaryTree {
 
   mirror(root) {
     if (root === null) {
-      return null;
+      return;
     }
-    let left = this.mirror(root.left);
-    let right = this.mirror(root.right);
 
-    root.left = right;
-    root.right = left;
+    let temp = root.left;
+    root.left = root.right;
+    root.right = temp;
 
-    return root;
+    this.mirror(root.left);
+    this.mirror(root.right);
   }
 }
 
