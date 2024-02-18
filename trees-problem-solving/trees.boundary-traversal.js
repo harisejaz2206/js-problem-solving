@@ -55,7 +55,7 @@ class BinaryTree {
       return;
     }
     if (root.right === null && root.left === null) {
-      answer.push(root.data, answer);
+      answer.push(root.data);
       return;
     }
 
@@ -98,6 +98,7 @@ tree.insertIterative(3);
 tree.insertIterative(4);
 tree.insertIterative(2);
 tree.insertIterative(9);
+tree.insertIterative(12);
 tree.insertIterative(1);
 // console.log("Binary Tree:", JSON.stringify(tree, null, 2));
 
