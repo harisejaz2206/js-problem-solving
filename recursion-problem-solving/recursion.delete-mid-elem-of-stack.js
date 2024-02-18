@@ -19,7 +19,7 @@ function deleteMiddle(stack, size) {
   helper(stack, k);
 }
 
-let stack = [5, 4, 3, 2, 1];
+let stack = [6, 5, 4, 3, 2, 1];
 console.log("stack before deleting middle", stack);
 deleteMiddle(stack, 5);
 console.log("stack before deleting middle", stack);
