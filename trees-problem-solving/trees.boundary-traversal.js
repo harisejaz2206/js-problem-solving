@@ -38,37 +38,57 @@ class BinaryTree {
     }
   }
 
-  // we have to return an array
-  levelOrder(root) {
-    let result = [];
+  traverseLeft(root, answer) {
+    if (root == null || (root.left == null && root.right == null)) {
+      return;
+    }
+    answer.push(root.data);
+    if (root.left) {
+      this.traverseLeft(root.left, answer);
+    } else {
+      this.traverseRight(root.right, answer);
+    }
+  }
+
+  traverseLeaf(root, answer) {
     if (root === null) {
-      return result;
+      return;
+    }
+    if (root.right === null && root.left === null) {
+      answer.push(root.data, answer);
+      return;
     }
 
-    let queue = [];
-    queue.push(root);
-    let leftToRight = true;
+    this.traverseLeaf(root.left, answer);
+    this.traverseLeaf(root.right, answer);
+  }
 
-    while (queue.length !== 0) {
-      // Level each process
-      let size = queue.length;
-      let tempAns = [];
-      for (let i = 0; i < size; i++) {
-        let frontNode = queue.shift();
-        let index = leftToRight ? i : size - i - 1;
-        tempAns[index] = frontNode.data;
-
-        if (frontNode.left) {
-          queue.push(frontNode.left);
-        }
-        if (frontNode.right) {
-          queue.push(frontNode.right);
-        }
-      }
-      leftToRight = !leftToRight;
-      result.push(...tempAns);
+  traverseRight(root, answer) {
+    if (root === null || (root.left == null && root.right == null)) {
+      return;
     }
-    return result;
+
+    if (root.right) {
+      this.traverseRight(root.right, answer);
+    } else {
+      this.traverseLeft(root.left, answer);
+    }
+    answer.push(root.data);
+  }
+
+  boundary(root, answer) {
+    if (root === null) {
+      return answer;
+    }
+
+    answer.push(root.data);
+    this.traverseLeft(root.left, answer);
+
+    this.traverseLeaf(root.left, answer);
+    this.traverseLeaf(root.right, answer);
+
+    this.traverseRight(root.right, answer);
+    return answer;
   }
 }
 
@@ -81,5 +101,5 @@ tree.insertIterative(9);
 tree.insertIterative(1);
 // console.log("Binary Tree:", JSON.stringify(tree, null, 2));
 
-console.log("Level order traversal:");
-console.log(tree.levelOrder(tree.root));
+let answer = [];
+console.log(tree.boundary(tree.root, answer));
