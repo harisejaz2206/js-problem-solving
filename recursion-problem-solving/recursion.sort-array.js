@@ -10,15 +10,15 @@
 /**
  * Inserts a given element into a sorted array recursively.
  */
-function insert(array, temp) {
-  if (array.length === 0 || array[array.length - 1] <= temp) {
-    array.push(temp);
+function insert(array, element) {
+  if (array.length === 0 || element <= array[array.length - 1]) {
+    array.push(element);
     return;
   }
-  let value = array[array.length - 1];
+  let temp = array[array.length - 1];
   array.pop();
-  insert(array, temp);
-  array.push(value);
+  insert(array, element);
+  array.push(temp);
 }
 
 /**
@@ -28,7 +28,6 @@ function sort(array) {
   if (array.length === 1) {
     return;
   }
-
   let temp = array[array.length - 1];
   array.pop();
   sort(array);
@@ -36,5 +35,6 @@ function sort(array) {
 }
 
 var array = [2, 3, 7, 6, 4];
+console.log("Unsorted array:", array);
 sort(array);
 console.log("Sorted array:", array);
