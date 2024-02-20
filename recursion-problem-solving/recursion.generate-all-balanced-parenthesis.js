@@ -15,7 +15,6 @@ function solve(input, openCount, closeCount, answerArray, initialAnswer) {
   if (openCount === closeCount) {
     initialAnswer += "(";
     openCount--;
-    solve(input, openCount, closeCount, answerArray, initialAnswer);
     return;
   }
   let option1 = initialAnswer + "(";
