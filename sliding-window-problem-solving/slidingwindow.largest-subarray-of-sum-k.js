@@ -1,5 +1,5 @@
 const largestSubarray = (array, k) => {
-  // let k represrent  the sum to be achieved
+  // let k represent  the sum to be achieved
   let size = array.length;
   let i = 0;
   let j = 0;
