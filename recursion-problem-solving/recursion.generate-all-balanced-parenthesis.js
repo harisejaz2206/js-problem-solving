@@ -4,6 +4,26 @@ function solve(input, openCount, closeCount, answerArray, initialAnswer) {
     answerArray.push(initialAnswer);
     return;
   }
+  if (openCount === 0) {
+    while (closeCount > 0) {
+      initialAnswer += ")";
+      closeCount--;
+    }
+    answerArray.push(initialAnswer);
+    return;
+  }
+  if (openCount === closeCount) {
+    initialAnswer += "(";
+    openCount--;
+    solve(input, openCount, closeCount, answerArray, initialAnswer);
+    return;
+  }
+  let option1 = initialAnswer + "(";
+  let option2 = initialAnswer + ")";
+
+  solve(input, openCount - 1, closeCount, answerArray, option1);
+  solve(input, openCount, closeCount - 1, answerArray, option2);
+  return answerArray;
 }
 
 function generateAllParentheses(input, answerArray) {
@@ -18,3 +38,4 @@ function generateAllParentheses(input, answerArray) {
 var answerArray = [];
 var input = 3;
 generateAllParentheses(input, answerArray);
+console.log(answerArray);
