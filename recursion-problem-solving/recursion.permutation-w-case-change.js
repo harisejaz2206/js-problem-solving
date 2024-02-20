@@ -15,6 +15,6 @@ permutationWithCaseChange = (input, output) => {
   permutationWithCaseChange(input, output2);
 };
 
-var input = "ab";
+var input = "abcd";
 var output = "";
 permutationWithCaseChange(input, output);
