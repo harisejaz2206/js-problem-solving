@@ -13,6 +13,7 @@ function solve(n, answerArray, onesCount, zeroesCount, initialAnswer) {
     let answer2 = initialAnswer + "0";
     solve(n - 1, answerArray, onesCount, zeroesCount + 1, answer2);
   }
+  return answerArray;
 }
 
 function printNBitBinaryNumbers(n, answerArray) {
