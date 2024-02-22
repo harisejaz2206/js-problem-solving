@@ -6,12 +6,11 @@ var majorityElement = function (array) {
   });
   for (const element in arrayMap) {
     if (arrayMap[element] > size) {
-      return arrayMap[element];
+      return element;
     }
   }
 };
 
 var array1 = [3, 2, 3];
 var array2 = [2, 2, 1, 1, 1, 2, 2];
-
-majorityElement(array2);
+console.log(majorityElement(array2));
