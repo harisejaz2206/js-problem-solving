@@ -28,7 +28,20 @@ function twoSum(nums, target) {
   return null;
 }
 
+function twoSumPractice(nums, target) {
+  const numMap = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    let complement = target - nums[i];
+    if (numMap.hasOwnProperty(complement)) {
+      return [i, numMap[complement]];
+    }
+    numMap[nums[i]] = i;
+  }
+  return null;
+}
+
 // Example usage:
 const nums = [2, 7, 11, 15];
 const target = 9;
-console.log(bruteForce(nums, target)); // Output: [0, 1] (Indices of elements that sum up to the target)
+console.log(twoSumPractice(nums, target)); // Output: [0, 1] (Indices of elements that sum up to the target)
