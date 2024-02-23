@@ -1,5 +1,5 @@
 /*
-Question: Write code for removing duplicates in the array and return the number of elements which were unique.
+Question: Write code for removing duplicates in a sorted array and return the number of elements which were unique.
 */
 
 /*
@@ -9,7 +9,7 @@ Plus to return unique elements it will take O(N) so O(NLogN + N)
 • Space complexity: suppose all were unique elements, so you would need O(N) space.
 */
 // brute force approach!
-function removeDuplicates(array) {
+function removeDuplicatesBrute(array) {
   let set = new Set();
 
   for (let i = 0; i < array.length; i++) {
@@ -18,5 +18,25 @@ function removeDuplicates(array) {
   return set.size;
 }
 
-let array = [1, 2, 3, 3, 4, 4, 5, 1, 6, 7, 2, 4, 5, 2];
-console.log(removeDuplicates(array));
+/*
+• Time complexity: O(N) - one iteration of array
+• Space complexity: O(1) - no extra space needed
+*/
+function removeDuplicatesOptimal(array) {
+  let ptr1 = 0;
+
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] !== array[ptr1]) {
+      //   ptr2 = array[i];
+      array[ptr1 + 1] = array[i];
+      ptr1++;
+    }
+  }
+  console.log("previous:", array);
+  array.length = ptr1 + 1;
+  console.log("after:", array);
+  return ptr1 + 1;
+}
+
+let array = [1, 1, 1, 2, 2, 2, 3, 3, 3];
+console.log(removeDuplicatesOptimal(array));
