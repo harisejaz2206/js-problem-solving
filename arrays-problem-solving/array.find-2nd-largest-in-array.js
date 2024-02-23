@@ -19,5 +19,15 @@ function secondLargestBrute(array) {
   }
 }
 
+function secondLargestBetter(array) {
+  let largest = -1;
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i] > largest) {
+      largest = array[i];
+    }
+  }
+  console.log("largest", largest);
+}
+
 let array = [1, 6, 3, 8, 8, 8, 3, 6, 8, 8, 8, 4, 5];
 secondLargestBrute(array);
