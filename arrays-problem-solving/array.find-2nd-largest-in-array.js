@@ -21,13 +21,21 @@ function secondLargestBrute(array) {
 
 function secondLargestBetter(array) {
   let largest = -1;
+  let secondLargest = -1;
   for (let i = 0; i < array.length - 1; i++) {
     if (array[i] > largest) {
       largest = array[i];
     }
   }
+
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i] > secondLargest && array[i] < largest) {
+      secondLargest = array[i];
+    }
+  }
   console.log("largest", largest);
+  console.log("second largest", secondLargest);
 }
 
-let array = [1, 6, 3, 8, 8, 8, 3, 6, 8, 8, 8, 4, 5];
-secondLargestBrute(array);
+let array = [1, 6, 3, 8, 8, 8, 3, 6, 8, 9, 12, 8, 8, 4, 5];
+secondLargestBetter(array);
