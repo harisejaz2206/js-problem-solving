@@ -3,7 +3,8 @@
                 variabe called secondLargest. That will contain the second largest.
     • Time complexity for sorting: O(Nlog N) and for-loop iteration in worst case is O(N) 
 
-2. 
+2. better approach: use two variables: largest, and secondLargest. 
+    • Time complexity for sorting: O(N) + O(N) for each iteration of the array.
 
 */
 
@@ -26,10 +27,27 @@ function secondLargestBetter(array) {
     if (array[i] > largest) {
       largest = array[i];
     }
-  }
 
-  for (let i = 0; i < array.length - 1; i++) {
-    if (array[i] > secondLargest && array[i] < largest) {
+    for (let i = 0; i < array.length - 1; i++) {
+      if (array[i] > secondLargest && array[i] < largest) {
+        secondLargest = array[i];
+      }
+    }
+    // the reason this would not work in one for-loop is due to the fact the maybe the largest
+    // has not yet been traversed so the answer will not be correct
+  }
+  console.log("largest", largest);
+  console.log("second largest", secondLargest);
+}
+
+function secondLargestOptimal(array) {
+  let largest = array[0];
+  let secondLargest = -1;
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > largest) {
+      secondLargest = largest;
+      largest = array[i];
+    } else if (array[i] < largest && array[i] > secondLargest) {
       secondLargest = array[i];
     }
   }
@@ -38,4 +56,4 @@ function secondLargestBetter(array) {
 }
 
 let array = [1, 6, 3, 8, 8, 8, 3, 6, 8, 9, 12, 8, 8, 4, 5];
-secondLargestBetter(array);
+secondLargestOptimal(array);
