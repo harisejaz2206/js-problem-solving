@@ -47,16 +47,44 @@ class BinaryTree {
     return Math.max(leftHeight, rightHeight) + 1;
   }
 
+  solve(root, array, value) {
+    if (root === null) {
+      return false;
+    }
+
+    array.push(root.data);
+    if (root.data === value) {
+      return true;
+    }
+
+    if (
+      this.solve(root.left, array, value) ||
+      this.solve(root.right, array, value)
+    ) {
+      return true;
+    }
+
+    array.pop();
+    return false;
+  }
+
   // we will inorder traversal for this. We can use the rest as well but KIS (keep it simple)!
-  rootToNodePath(root) {}
+  rootToNodePath(root, value) {
+    let array = [];
+    if (root == null) {
+      return array;
+    }
+
+    this.solve(root, array, value);
+    return array;
+  }
 }
 
 const tree = new BinaryTree();
 tree.insertIterative(5);
 tree.insertIterative(3);
 tree.insertIterative(2);
-// tree.insertIterative(1);
+tree.insertIterative(1);
 tree.insertIterative(9);
 // console.log("Binary Tree:", JSON.stringify(tree, null, 2));
-
-console.log("Binary tree balanced: ", tree.checkIfBalanced(tree.root));
+console.log(tree.rootToNodePath(tree.root, 1));
