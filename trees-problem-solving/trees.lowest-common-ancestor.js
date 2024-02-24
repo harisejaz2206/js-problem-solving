@@ -43,13 +43,13 @@ class BinaryTree {
       return root;
     }
 
-    let leftNode = new Node(lowestCommonAncestor(root.left, p, q));
-    let rightNode = new Node(lowestCommonAncestor(root.right, p, q));
+    let leftNode = new Node(this.lowestCommonAncestor(root.left, p, q));
+    let rightNode = new Node(this.lowestCommonAncestor(root.right, p, q));
 
     if (leftNode === null) {
-      return right;
+      return rightNode;
     } else if (rightNode === null) {
-      return left;
+      return leftNode;
     } else {
       // both left and right are not null so this is our answer
       return root;
@@ -67,4 +67,5 @@ tree.insertIterative(9);
 let p = new Node(2);
 let q = new Node(1);
 
-lowestCommonAncestor(tree.root, p, q);
+const lowestCommonAncestor = tree.lowestCommonAncestor(tree.root, p, q);
+console.log("Lowest common ancestor: " + lowestCommonAncestor.data);
