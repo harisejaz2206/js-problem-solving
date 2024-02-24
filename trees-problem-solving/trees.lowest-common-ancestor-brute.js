@@ -71,11 +71,13 @@ class BinaryTree {
 
   //
   lowestCommonAncestor(array1, array2) {
-    let size1 = array1.length;
-    let size2 = array2.length;
-    let lowestCommonAncestor = -1;
+    if (array1.length === 0 || array2.length === 0) {
+      console.log("One of the nodes doesn't exist in the tree.");
+      return -1; // or appropriate error handling
+    }
 
-    let n = Math.abs(size1 - size2);
+    let n = Math.min(array1.length, array2.length);
+    let lowestCommonAncestor = -1;
 
     for (let i = 0; i < n; i++) {
       if (array1[i] === array2[i]) {
@@ -84,7 +86,14 @@ class BinaryTree {
         break;
       }
     }
-    console.log("lowest common ancestor:", lowestCommonAncestor);
+
+    if (lowestCommonAncestor === -1) {
+      console.log("No common ancestor found.");
+    } else {
+      console.log("Lowest common ancestor:", lowestCommonAncestor);
+    }
+
+    return lowestCommonAncestor;
   }
 }
 
