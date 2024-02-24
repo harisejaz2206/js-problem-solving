@@ -69,3 +69,5 @@ let q = new Node(1);
 
 const lowestCommonAncestor = tree.lowestCommonAncestor(tree.root, p, q);
 console.log("Lowest common ancestor: " + lowestCommonAncestor.data);
+
+// We have to work with nodes rather than values.
