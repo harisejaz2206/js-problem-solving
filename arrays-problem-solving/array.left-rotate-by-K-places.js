@@ -9,7 +9,7 @@ const rotateByKPlaces_usingJS = (array, k) => {
   return array;
 };
 
-const rotateByKPlaces = (array, k) => {
+const rotateByKPlacesBetter = (array, k) => {
   let n = array.length;
   let j = 0;
   let temp = [];
@@ -28,6 +28,23 @@ const rotateByKPlaces = (array, k) => {
   return array;
 };
 
+const rotateByKPlacesOptimal = (array, k) => {
+  let n = array.length;
+  let temp = [];
+  for (let i = 0; i < k; i++) {
+    temp.push(array[i]);
+  }
+
+  for (let i = k; i < array.length; i++) {
+    array[i - k] = array[i];
+  }
+
+  for (let i = n - k; i < array.length; i++) {
+    array[i] = temp[i - (n - k)];
+  }
+  return array;
+};
+
 let array = [1, 2, 3, 4, 5, 6, 7];
 let k = 3;
-console.log(rotateByKPlaces(array, k));
+console.log(rotateByKPlacesOptimal(array, k));
