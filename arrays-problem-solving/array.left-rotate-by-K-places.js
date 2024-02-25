@@ -28,45 +28,24 @@ const rotateByKPlacesBrute = (array, k) => {
   return array;
 };
 
+function reverseArray(array, start, end) {
+  while (start < end) {
+    let temp = array[start];
+    array[start] = array[end];
+    array[end] = temp;
+    start++;
+    end--;
+  }
+}
+
 function rotateByKPlacesOptimal(array, k) {
   let n = array.length;
-  let i = 0;
-  let ptr1 = 0;
-  let ptr2 = k - 1;
-  while (i < k && ptr1 < ptr2) {
-    let temp = array[ptr1];
-    array[ptr1] = array[ptr2];
-    array[ptr2] = temp;
-    ptr1++;
-    ptr2--;
-    i++;
-  }
+  k = k % n;
+  reverseArray(array, 0, k - 1);
+  reverseArray(array, k, n - 1);
+  reverseArray(array, 0, n - 1);
 
-  let j = k;
-  let ptr3 = k;
-  let ptr4 = array.length - 1;
-  while (j < n && ptr3 < ptr4) {
-    let temp = array[ptr3];
-    array[ptr3] = array[ptr4];
-    array[ptr4] = temp;
-    ptr3++;
-    ptr4--;
-    j++;
-  }
-
-  ptr1 = 0;
-  ptr4 = array.length - 1;
-  i = 0;
-  while (i < n && ptr1 < ptr4) {
-    let temp = array[ptr1];
-    array[ptr1] = array[ptr4];
-    array[ptr4] = temp;
-    ptr1++;
-    ptr4--;
-    i++;
-  }
-
-  console.log(array);
+  return array;
 }
 
 let array = [1, 2, 3, 4, 5, 6, 7];
