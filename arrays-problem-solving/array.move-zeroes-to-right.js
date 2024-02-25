@@ -38,6 +38,14 @@ function moveZeroesMyLogicCorrected(array) {
   console.log("my method", array);
 }
 
+/*
+-> The time complexity of the provided moveZeroesMyLogicBrute function is O(2n), where n is the length of the input array. 
+1. The first loop iterates through the entire array once, which has a time complexity of O(n), where n is the length of the array.
+2. The second loop iterates at most zeroCount + 1 times, where zeroCount is the count of zeroes in the input array. This loop has a 
+time complexity of O(zeroCount), where zeroCount is the number of zeroes in the input array. However, since zeroCount is at most equal to the length of the array (worst case scenario when all elements are zeroes), the time complexity for this loop is also O(n).
+
+-> The space complexity is O(n) in the worst case scenario, where n is the length of the temp array.
+*/
 function moveZeroesMyLogicBrute(array) {
   let temp = [];
   let zeroCount = 0;
@@ -56,6 +64,28 @@ function moveZeroesMyLogicBrute(array) {
   return temp;
 }
 
-let array = [1, 3, 4, 0, 4, 6, 0, 0, 1, 3, 0, 3];
-moveZeroesMyLogicCorrected(array);
-moveZeroesMyLogicBrute(array);
+function moveZeroesMyLogicOptimal(array) {
+  let i = 0;
+  let j = -1;
+
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === 0) {
+      j = i;
+      break;
+    }
+  }
+
+  for (i = j + 1; i < array.length; i++) {
+    if (array[i] !== 0) {
+      array[j] = array[i];
+      array[i] = 0;
+      j++;
+    }
+  }
+  console.log("optimal:", array);
+}
+
+let array = [1, 0, 3, 0, 4, 0, 4, 6, 0, 1, 3];
+// moveZeroesMyLogicCorrected(array);
+// moveZeroesMyLogicBrute(array);
+moveZeroesMyLogicOptimal(array);
