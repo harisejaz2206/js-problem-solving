@@ -5,7 +5,7 @@ const spiralTraversal = (matrix) => {
   let bottom = matrix.length - 1;
   let ansArray = [];
 
-  while (top <= bottom && right <= left) {
+  while (top <= bottom && left <= right) {
     for (let i = left; i <= right; i++) {
       ansArray.push(matrix[top][i]);
     }
@@ -23,7 +23,7 @@ const spiralTraversal = (matrix) => {
       bottom--;
     }
 
-    if (right <= left) {
+    if (left <= right) {
       for (let i = bottom; i >= top; i--) {
         ansArray.push(matrix[i][left]);
       }
