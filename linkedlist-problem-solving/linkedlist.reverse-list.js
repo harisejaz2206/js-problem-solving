@@ -37,6 +37,15 @@ class LinkedList {
   reverseList(head) {
     let prev = null;
     let current = head;
+
+    while (current != null) {
+      let temp = current.next;
+      current.next = prev;
+      prev = current;
+      current = temp;
+    }
+
+    return prev;
   }
 
   displayList() {
@@ -54,5 +63,8 @@ class LinkedList {
 const list1 = new LinkedList(1);
 list1.addNode(2);
 list1.addNode(3);
+list1.displayList();
+console.log("");
+list1.head = list1.reverseList(list1.head);
 
-addTwoNumbers(list1.head, list2.head);
+list1.displayList();
