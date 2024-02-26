@@ -42,7 +42,7 @@ class LinkedList {
     let carry = 0;
 
     while (temp1 != null || temp2 != null) {
-      sum = carry;
+      let sum = carry;
       if (temp1) {
         sum = sum + temp1.data;
       }
