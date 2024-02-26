@@ -48,6 +48,13 @@ class LinkedList {
     return prev;
   }
 
+  checkPalindrome(head){
+    let start = head;
+    let temp = head;
+
+    while()
+  }
+
   displayList() {
     let current = this.head;
     let list = "";
