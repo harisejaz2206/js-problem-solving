@@ -34,20 +34,64 @@ class LinkedList {
     }
   }
 
+  addTwoNumbers(head1, head2) {
+    let temp1 = head1;
+    let temp2 = head2;
+    let dummyNode = new Node(-1);
+    let current = dummyNode;
+    let carry = 0;
+
+    while (temp1 != null || temp2 != null) {
+      sum = carry;
+      if (temp1) {
+        sum = sum + temp1.data;
+      }
+      if (temp2) {
+        sum = sum + temp2.data;
+      }
+
+      let newNode = new Node(sum % 10);
+      carry = sum / 10;
+      current.next = newNode;
+      current = current.next;
+
+      if (temp1) {
+        temp1 = temp1.next;
+      }
+      if (temp2) {
+        temp2 = temp2.next;
+      }
+    }
+
+    if (carry) {
+      let newNode = new Node(carry);
+      current.next = newNode;
+    }
+    return dummyNode.next;
+  }
+
   displayList() {
     let current = this.head;
+    let list = "";
     while (current) {
-      console.log(current.data);
+      list += `${current.data} -> `;
       current = current.next;
     }
+    list += "null";
+    console.log(list);
   }
 }
 
-// Example usage:
-const linkedList = new LinkedList(1); // Initial data for the first node
-linkedList.addNode(2);
-linkedList.addNode(3);
-linkedList.deleteNode(1);
+const list1 = new LinkedList(1);
+list1.addNode(2);
+list1.addNode(3);
+console.log("List 1:");
+list1.displayList();
+console.log("");
+const list2 = new LinkedList(4);
+list2.addNode(5);
+list2.addNode(6);
+console.log("List 2:");
+list2.displayList();
 
-console.log("Linked List:");
-linkedList.displayList();
+addTwoNumbers(list1.head, list2.head);
