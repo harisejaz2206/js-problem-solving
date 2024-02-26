@@ -1,28 +1,37 @@
 const spiralTraversal = (matrix) => {
   let top = 0;
-  let right = matrix[0].length;
+  let right = matrix[0].length - 1;
   let left = 0;
-  let bottom = matrix.length;
+  let bottom = matrix.length - 1;
+  let ansArray = [];
 
-  for (let i = left; i < right; i++) {
-    console.log(matrix[top][i]);
-  }
-  top++;
+  while (top <= bottom && right <= left) {
+    for (let i = left; i <= right; i++) {
+      ansArray.push(matrix[top][i]);
+    }
+    top++;
 
-  for (let i = top; i < bottom; i++) {
-    console.log(matrix[i][right]);
-  }
-  right--;
+    for (let i = top; i <= bottom; i++) {
+      ansArray.push(matrix[i][right]);
+    }
+    right--;
 
-  for (let i = right; i < left; i--) {
-    console.log(matrix[bottom][i]);
-  }
-  bottom--;
+    if (top <= bottom) {
+      for (let i = right; i >= left; i--) {
+        ansArray.push(matrix[bottom][i]);
+      }
+      bottom--;
+    }
 
-  for (let i = bottom; i <= top; i--) {
-    console.log(matrix[i][left]);
+    if (right <= left) {
+      for (let i = bottom; i >= top; i--) {
+        ansArray.push(matrix[i][left]);
+      }
+      left++;
+    }
   }
-  left++;
+
+  return ansArray;
 };
 
 const matrix = [
@@ -34,4 +43,4 @@ const matrix = [
   [31, 32, 33, 34, 35, 36],
 ];
 
-spiralTraversal(matrix);
+console.log(spiralTraversal(matrix));
