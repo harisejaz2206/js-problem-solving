@@ -48,6 +48,36 @@ class LinkedList {
     return prev;
   }
 
+  checkPalindrome(head) {
+    // 1. Find the middle of the linkedlist
+    // 2. Reverse the second half of the linkedlist
+    // 3. Compare the first half with the reversed second half
+
+    // Step 1
+    let slow = head;
+    let fast = head;
+
+    while (fast.next !== null && fast.next.next !== null) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+
+    // Step 2
+    let head2 = this.reverseList(slow.next);
+
+    let head1 = head;
+
+    // Step 3
+    while (head2 !== null) {
+      if (head1.data !== head2.data) {
+        return false;
+      }
+      head1 = head1.next;
+      head2 = head2.next;
+    }
+    return true;
+  }
+
   displayList() {
     let current = this.head;
     let list = "";
