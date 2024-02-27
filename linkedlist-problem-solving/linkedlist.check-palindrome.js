@@ -1,13 +1,3 @@
-/*
-Problem statement
-You are given two non-negative numbers 'num1' and 'num2' represented in the form of linked lists.
-
-The digits in the linked lists are stored in reverse order, i.e. starting from least significant digit (LSD) 
-to the most significant digit (MSD), and each of their nodes contains a single digit.
-
-Calculate the sum of the two numbers and return the head of the sum list.
-*/
-
 class Node {
   constructor(data, next = null) {
     this.data = data;
@@ -93,9 +83,5 @@ class LinkedList {
 const list1 = new LinkedList(1);
 list1.addNode(2);
 list1.addNode(1);
-// list1.displayList();
-console.log("");
-// list1.head = list1.reverseList(list1.head);
 const isPalindrome = list1.checkPalindrome(list1.head);
 console.log("You list is palindrome? : " + isPalindrome);
-// list1.displayList();
