@@ -16,6 +16,5 @@ function findEquivalencePoint(array) {
   return -1;
 }
 
-// Example usage:
 let array = [1, 2, 3, 4, 3, 2, 1];
-console.log(findEquivalencePoint(array)); // Output: 3
+console.log(findEquivalencePoint(array));
