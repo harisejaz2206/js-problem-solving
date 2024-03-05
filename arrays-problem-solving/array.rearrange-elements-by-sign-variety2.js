@@ -1,3 +1,25 @@
+/*
+Problem statement
+There is an array ‘A’ of size ‘N’ with an equal number of positive and negative elements.
+
+Without altering the relative order of positive and negative numbers, you must return an array of alternative positive and negative values.
+
+Note:
+
+Start the array with a positive number. 
+For example
+
+Input:
+A = [1, 2, -4, -5], N = 4
+Output:
+1 -4  2 -5
+Explanation: 
+Positive elements = 1, 2
+Negative elements = -4, -5
+To maintain relative ordering, 1 must occur before 2, and -4 must occur before -5.
+*/
+
+// The logic is correct but getting extra elements in the answer array. Logic is alright though.
 const rearrangeVariety2 = (array) => {
   let n = array.length;
   let positives = [];
@@ -25,7 +47,7 @@ const rearrangeVariety2 = (array) => {
     }
 
     let index = negativeCount * 2;
-    for (let i = negativeCount; i < positives.length; i++) {
+    for (let i = negativeCount; i < positiveCount; i++) {
       answerArray[index] = positives[i];
       index++;
     }
@@ -36,7 +58,7 @@ const rearrangeVariety2 = (array) => {
     }
 
     let index = positiveCount * 2;
-    for (let i = positiveCount; i < negatives.length; i++) {
+    for (let i = positiveCount; i < negativeCount; i++) {
       answerArray[index] = negatives[i];
       index++;
     }
