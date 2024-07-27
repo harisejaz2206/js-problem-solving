@@ -15,7 +15,7 @@ function subset(input, output, finalSet) {
   subset(input, output2, finalSet);
 }
 
-let input = "aab";
+let input = "123";
 let output = "";
 let finalSet = new Set();
 
