@@ -11,9 +11,8 @@ function findEquivalencePoint(array) {
     if (leftSum === totalSum) {
       return i;
     }
-    
+
     leftSum += array[i];
-    
   }
 
   return -1;

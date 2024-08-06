@@ -17,8 +17,21 @@ const findLeaders = (arr) => {
   return leaders;
 };
 
+const findLeadersPractice = (array) => {
+  let leaders = [];
+  let maxRight = array[array.length - 1];
+  leaders.push(array[array.length - 1]);
+
+  for (let i = array.length - 2; i >= 0; i--) {
+    if (array[i] > maxRight) {
+      leaders.unshift(array[i]);
+      maxRight = array[i];
+    }
+  }
+  return leaders;
+};
 // Example usage:
-const array = [2, 3, 10, 1, 4];
-const leaders = findLeaders(array);
+const array = [11, 2, 3, 10, 1, 4];
+const leaders = findLeadersPractice(array);
 
 console.log("Leaders:", leaders);
