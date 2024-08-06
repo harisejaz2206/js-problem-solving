@@ -17,5 +17,22 @@ const averageExcludingMinMax = (array) => {
   return Math.ceil((sum - max - min) / array.length);
 };
 
+const averageExcludingMinMaxPractice = (array) => {
+  if (array.length <= 2) {
+    return -1;
+  }
+  let max = -Infinity;
+  let min = Infinity;
+  let sum = 0;
+
+  array.forEach((element) => {
+    if (element > max) max = element;
+    if (element < min) min = element;
+
+    sum += element;
+  });
+  return (sum - max - min) / array.length;
+};
+
 const arr = [5, 1, 9, 3, 7, 8];
-console.log(averageExcludingMinMax(arr));
+console.log(averageExcludingMinMaxPractice(arr));
