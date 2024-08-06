@@ -7,10 +7,13 @@ function findEquivalencePoint(array) {
   let leftSum = 0;
   for (let i = 0; i < array.length; i++) {
     totalSum -= array[i];
-    leftSum += array[i];
+
     if (leftSum === totalSum) {
       return i;
     }
+    
+    leftSum += array[i];
+    
   }
 
   return -1;
