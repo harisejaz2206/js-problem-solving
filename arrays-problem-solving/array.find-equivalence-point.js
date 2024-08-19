@@ -19,4 +19,5 @@ function findEquivalencePoint(array) {
 }
 
 let array = [1, 2, 3, 4, 3, 2, 1];
+let array1 = [4, 2, 4];
 console.log(findEquivalencePoint(array));

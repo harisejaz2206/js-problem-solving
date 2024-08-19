@@ -47,6 +47,17 @@ class BinaryTree {
 
     return Math.max(leftHeight, rightHeight) + 1;
   }
+
+  height2(root) {
+    if (root === null) {
+      return 0;
+    }
+
+    let leftHeight = this.height(root.left);
+    let rightHeight = this.height(root.right);
+
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
 }
 
 const tree = new BinaryTree();
@@ -58,4 +69,4 @@ tree.insertIterative(9);
 tree.insertIterative(1);
 // console.log("Binary Tree:", JSON.stringify(tree, null, 2));
 
-console.log("Height of binary tree:", tree.height(tree.root));
+console.log("Height of binary tree:", tree.height2(tree.root));
