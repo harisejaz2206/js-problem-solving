@@ -1,24 +1,47 @@
-const spiralTraversal = (matrix, n) => {
+function zigzagRowTraversal(matrix) {
   let result = [];
-  for (let col = 0; col < n; col++) {
-    if (col % 2 === 0) {
-      for (let row = 0; row < n; row++) {
-        result.push(matrix[row][col]);
+  
+  for (let i = 0; i < matrix.length; i++) {
+    if (i % 2 === 0) {
+      // Left to right
+      for (let j = 0; j < matrix[i].length; j++) {
+        result.push(matrix[i][j]);
       }
     } else {
-      for (let row = n - 1; row >= 0; row--) {
-        result.push(matrix[row][col]);
+      // Right to left
+      for (let j = matrix[i].length - 1; j >= 0; j--) {
+        result.push(matrix[i][j]);
       }
     }
   }
+  
   return result;
-};
+}
 
-// Example usage:
+function zigzagColumnTraversal(matrix) {
+  let result = [];
+  
+  for (let j = 0; j < matrix[0].length; j++) {
+    if (j % 2 === 0) {
+      // Top to bottom
+      for (let i = 0; i < matrix.length; i++) {
+        result.push(matrix[i][j]);
+      }
+    } else {
+      // Bottom to top
+      for (let i = matrix.length - 1; i >= 0; i--) {
+        result.push(matrix[i][j]);
+      }
+    }
+  }
+  
+  return result;
+}
+
 const matrix = [
   [1, 2, 3],
   [4, 5, 6],
-  [7, 8, 9],
+  [7, 8, 9]
 ];
 
-console.log(spiralTraversal(matrix, matrix.length).join(" "));
+console.log(zigzagRowTraversal(matrix)); // Output: [1, 4, 7, 8, 5, 2, 3, 6, 9]
