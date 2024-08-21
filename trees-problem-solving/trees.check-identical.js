@@ -26,6 +26,7 @@ class BinaryTree {
           }
           currentParentNode = currentParentNode.left;
         } else {
+          // insert on right
           if (currentParentNode.right === null) {
             currentParentNode.right = node;
             break;
