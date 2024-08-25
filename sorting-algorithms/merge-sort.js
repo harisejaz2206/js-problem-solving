@@ -37,15 +37,16 @@ O(n) * O(log n) = O(n log n)
 */
 
 function mergeSort(array) {
-  // base case
+  // Base case: if the array has only one element, it is already sorted
   if (array.length === 1) {
-    return arr;
+    return array;
   }
 
   const mid = Math.floor(array.length / 2);
   const left = array.slice(0, mid);
   const right = array.slice(mid);
 
+  // Recursively divide and merge
   return merge(mergeSort(left), mergeSort(right));
 }
 
@@ -54,19 +55,19 @@ function merge(leftArray, rightArray) {
   let leftIndex = 0;
   let rightIndex = 0;
 
-  while (leftIndex < left.length && rightIndex < right.length) {
-    if (left[leftIndex] < right[rightIndex]) {
-      result.push[left[leftIndex]];
+  // Merge the two arrays by comparing elements from both arrays
+  while (leftIndex < leftArray.length && rightIndex < rightArray.length) {
+    if (leftArray[leftIndex] < rightArray[rightIndex]) {
+      result.push(leftArray[leftIndex]);
       leftIndex++;
     } else {
-      result.push[left[leftIndex]];
-      rightIndex;
+      result.push(rightArray[rightIndex]);
+      rightIndex++;
     }
   }
 
-  // Merge the two arrays by comparing elements from both arrays
   // If there are any remaining elements in the left or right array, add them
-  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+  return result.concat(leftArray.slice(leftIndex)).concat(rightArray.slice(rightIndex));
 }
 
 const unsortedArray = [38, 27, 43, 3, 9, 82, 10];
