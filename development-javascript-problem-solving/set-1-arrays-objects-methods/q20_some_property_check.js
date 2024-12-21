@@ -6,3 +6,5 @@ const objects = [{ id: 1 }, { name: 'Alice' }, { active: true }];
 // Expected Output: true (if `active` is the property checked)
 
 // Write your code here:
+const hasActiveProperty = objects.some(object => object.hasOwnProperty('active'))
+console.log(hasActiveProperty);

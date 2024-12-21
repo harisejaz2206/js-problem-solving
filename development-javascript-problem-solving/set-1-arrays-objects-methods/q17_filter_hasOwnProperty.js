@@ -6,3 +6,4 @@ const objects = [{ active: true }, { inactive: false }, { active: false }];
 // Expected Output: [{ active: true }, { active: false }]
 
 // Write your code here:
+console.log(objects.filter(object => !object.hasOwnProperty('inactive')))

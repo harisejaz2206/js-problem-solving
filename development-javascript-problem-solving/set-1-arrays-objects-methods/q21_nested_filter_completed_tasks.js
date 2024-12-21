@@ -10,4 +10,7 @@ const users = [
   // Expected Output: ['Charlie']
   
   // Write your code here:
-  
+  console.log(users.filter(user => {
+    const completedTasks = user.tasks.filter(task => task.completed).length
+    return completedTasks > 2
+  }).map(user => user.name))

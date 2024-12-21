@@ -6,3 +6,4 @@ const users = [{ username: 'Alice' }, { username: 'Bob' }, { username: 'Charlie'
 // Expected Output: ['Alice: 5', 'Bob: 3', 'Charlie: 7']
 
 // Write your code here:
+console.log(users.map(user => `${user.username}: ${user.username.length}`))

@@ -10,4 +10,5 @@ const people = [
   // Expected Output: ['Charlie', 'Alice']
   
   // Write your code here:
+  console.log(people.sort((a, b) => a.age - b.age).filter(person => person.age > 20).map(person => person.name))
   
