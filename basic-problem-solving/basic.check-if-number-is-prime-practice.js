@@ -4,12 +4,12 @@ const isPrime = (number) => {
   }
 
   const sqrt = Math.floor(Math.sqrt(number));
-  for (let i = 2; i <= number; i++) {
+  for (let i = 2; i < sqrt; i++) {
     if (number % i === 0) {
       return false;
     }
-    return true;
   }
+  return true;
 };
 
-console.log(isPrime(10));
+console.log(isPrime(13));

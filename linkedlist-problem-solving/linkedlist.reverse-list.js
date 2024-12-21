@@ -48,6 +48,10 @@ class LinkedList {
     return prev;
   }
 
+  // 1 -> 2 -> 3 -> 4 -> NULL 
+
+  // 4 -> 3 -> 2 -> 1 -> NULL
+
   displayList() {
     let current = this.head;
     let list = "";
