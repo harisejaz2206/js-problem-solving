@@ -8,3 +8,7 @@ const users = [{ name: 'Alice', age: 25 }, { name: 'Bob', age: 30 }];
 // name, age
 
 // Write your code here:
+
+users.forEach(user => {
+    console.log(Object.keys(user))
+})

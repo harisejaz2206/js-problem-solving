@@ -6,3 +6,6 @@ const objects = [{ a: 1, b: 2 }, { c: 3, d: 4 }];
 // Expected Output: [['a', 'b'], ['c', 'd']]
 
 // Write your code here:
+
+const newArray = objects.map(object => Object.keys(object))
+console.log('newArray: ', newArray);

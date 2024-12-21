@@ -6,3 +6,6 @@ const objects = [{ a: 1, b: 2, c: 3 }, { x: 4, y: 5, z: 6 }];
 // Expected Output: [6, 15]
 
 // Write your code here:
+objects.map(object => {
+    console.log(Object.values(object).reduce((acc, curr) => acc + curr, 0))
+})
