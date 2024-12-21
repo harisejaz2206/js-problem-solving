@@ -12,3 +12,4 @@ const people = [
   
   // Write your code here:
   
+  console.log(people.filter(person => person.age < 18))

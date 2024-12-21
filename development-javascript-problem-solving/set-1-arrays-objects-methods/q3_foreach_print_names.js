@@ -10,3 +10,5 @@ const names = ['Alice', 'Bob', 'Charlie', 'Diana'];
 // Diana
 
 // Write your code here:
+
+names.forEach(name => console.log(name))

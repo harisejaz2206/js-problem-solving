@@ -6,3 +6,7 @@ const numbers = [1, 3, 5, 7, 9];
 // Expected Output: [10, 14, 18]
 
 // Write your code here:
+
+const ans = numbers.filter(number => number >= 5).map(item => item * 2);
+
+console.log(ans);

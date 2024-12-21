@@ -6,3 +6,4 @@ const user = { id: 1, name: 'Alice', age: 23 };
 // Expected Output: [['id', 1], ['name', 'Alice'], ['age', 23]]
 
 // Write your code here:
+console.log(Object.entries(user))

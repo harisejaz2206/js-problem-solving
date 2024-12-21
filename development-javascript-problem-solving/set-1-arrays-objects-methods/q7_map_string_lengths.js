@@ -6,3 +6,5 @@ const fruits = ['apple', 'banana', 'cherry'];
 // Expected Output: [5, 6, 6]
 
 // Write your code here:
+
+console.log(fruits.map(item => item.length))

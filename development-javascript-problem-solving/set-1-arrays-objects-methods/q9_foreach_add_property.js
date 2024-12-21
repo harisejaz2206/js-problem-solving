@@ -9,4 +9,8 @@ const users = [
   // Expected Output: Modify `users` to include `isAdmin` property.
   
   // Write your code here:
-  
+  users.forEach(user => {
+    user.isAdmin = false;
+  })
+
+  console.log(users)
