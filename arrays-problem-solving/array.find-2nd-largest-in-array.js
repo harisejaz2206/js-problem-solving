@@ -57,3 +57,4 @@ function secondLargestOptimal(array) {
 
 let array = [1, 6, 3, 8, 8, 8, 3, 6, 8, 9, 12, 8, 8, 4, 5];
 secondLargestOptimal(array);
+
