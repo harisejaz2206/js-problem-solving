@@ -7,3 +7,12 @@ const orders = [
   { id: 3, items: ["pear", "grape", "melon"] }
 ];
 // Your code here
+
+console.log(orders.map(order => {
+  let count = order.items.length
+
+  return {
+    ...order,
+    count: count
+  }
+}))

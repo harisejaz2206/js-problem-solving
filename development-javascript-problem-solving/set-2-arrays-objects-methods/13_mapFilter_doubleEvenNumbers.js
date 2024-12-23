@@ -3,3 +3,5 @@
 
 const numbers = [1, 2, 3, 4, 5, 6];
 // Your code here
+
+console.log(numbers.filter(number => number % 2 === 0).map(number => number * 2))

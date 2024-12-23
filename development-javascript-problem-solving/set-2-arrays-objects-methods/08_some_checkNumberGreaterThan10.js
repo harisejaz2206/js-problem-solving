@@ -3,3 +3,5 @@
 
 const numbers = [3, 7, 9, 12];
 // Your code here
+
+console.log(numbers.some(number => number > 10))

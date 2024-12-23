@@ -3,3 +3,5 @@
 
 const fruits = ["apple", "banana", "cherry"];
 // Your code here
+
+fruits.forEach(fruit => console.log(fruit.toUpperCase()))

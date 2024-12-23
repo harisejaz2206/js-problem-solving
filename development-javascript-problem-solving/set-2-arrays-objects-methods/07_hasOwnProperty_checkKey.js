@@ -4,3 +4,5 @@
 const car = { make: "Toyota", model: "Corolla", year: 2020 };
 const key = "model";
 // Your code here
+
+console.log(car.hasOwnProperty(key))

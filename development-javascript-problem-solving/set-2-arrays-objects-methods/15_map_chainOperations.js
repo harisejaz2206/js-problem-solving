@@ -3,3 +3,5 @@
 
 const numbers = [1, 2, 3, 4];
 // Your code here
+
+console.log(numbers.map(number => number + 2).map(number => number * number))

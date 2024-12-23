@@ -8,3 +8,4 @@ const users = [
   ];
   // Your code here
   
+  console.log(users.map(user => user.email))

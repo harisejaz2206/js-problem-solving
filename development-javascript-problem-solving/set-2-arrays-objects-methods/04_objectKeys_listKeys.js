@@ -3,3 +3,5 @@
 
 const car = { make: "Toyota", model: "Corolla", year: 2020 };
 // Your code here
+
+console.log(Object.keys(car))

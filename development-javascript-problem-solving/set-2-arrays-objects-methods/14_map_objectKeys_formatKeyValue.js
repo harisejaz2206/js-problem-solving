@@ -3,3 +3,5 @@
 
 const dictionary = { apple: "A fruit", banana: "Another fruit", carrot: "A vegetable" };
 // Your code here
+
+console.log(Object.keys(dictionary).map(key => `${key}: ${dictionary[key]}`))
